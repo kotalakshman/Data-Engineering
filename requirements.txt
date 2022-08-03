@@ -1,11 +1,3 @@
-wget
-sklearn
-pandas
-seaborn
+tensorflow
+numpy
 matplotlib
-dvc
-google-api-python-client
-dask[dataframe]
-gcsfs
-google-cloud
-google-cloud-storage
