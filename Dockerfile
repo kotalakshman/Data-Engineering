@@ -18,6 +18,8 @@ RUN echo "deb https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /et
     apt-get update -y && apt-get install google-cloud-sdk -y
 WORKDIR /pipeline
 COPY ./ ./
+ADD model.py /opt/model.py
+RUN chmod +x /opt/model.py
 #RUN pip install -r requirements.txt
 RUN /usr/bin/python3 -m pip install --upgrade pip
 RUN pip install google-cloud-storage
@@ -33,3 +35,5 @@ RUN pip install wget
 #RUN pip install dvc
 RUN pip install "dask[dataframe]" --upgrade
 ENV TF_CPP_MIN_LOG_LEVEL 3
+CMD ["/opt/model.py"]
+
